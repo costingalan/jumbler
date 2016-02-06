@@ -11,7 +11,7 @@ if [ -f "$pic" ]
 then
     echo "Attempting to jumble $pic into $dest"
     
-    split $pic -n 3 ${pic} # original -> a b c -> a c b
+    split "$pic" -n 3 "${pic}" # original -> a b c -> a c b
                        # jumbled  -> a c b -> a b c
     echo "Split into cha[a-c]"
     
@@ -21,18 +21,18 @@ then
     then
         if [ -f "$dest" ]
         then
-            rm $dest
+            rm "$dest"
             echo "File $dest overwritten"
-            touch $dest
+            touch "$dest"
         fi
-        cat ${pic}aa ${pic}ac ${pic}ab > $dest
+        cat "${pic}"aa "${pic}"ac "${pic}"ab > "$dest"
         echo "$pic jumbled into $dest"
     else                # otherwise overwrite the file
-        cat ${pic}aa ${pic}ac ${pic}ab > $pic
+        cat "${pic}aa ${pic}ac ${pic}ab" > "$pic"
         echo "$pic (re?)jumbled"
     fi
     
-    rm ${pic}aa ${pic}ab ${pic}ac   # cleanup
+    rm "${pic}aa ${pic}ab ${pic}ac"   # cleanup
 else
     echo "Filename absent or invalid!"
 fi
