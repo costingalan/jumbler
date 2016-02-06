@@ -6,14 +6,13 @@
 
 if [[ $# -lt 2 ]]; then
   echo "Usage: ./$0 source_picture destination_picture"
-  exit
+  return 1
 fi
 
 pic=$1
 dest=$2
 echo "Jumbling initiated"
-if [ -f "$pic" ]
-then
+if [[ -f "$pic" ]]; then
     echo "Attempting to jumble $pic into $dest"
     
     split "$pic" -n 3 "${pic}" # original -> a b c -> a c b
@@ -22,10 +21,8 @@ then
     
 
     
-    if [ -n "$dest" ]   # if a destination is provided write there
-    then
-        if [ -f "$dest" ]
-        then
+    if [[ -n "$dest" ]]; then   # if a destination is provided write there
+        if [[ -f "$dest" ]]; then
             rm "$dest"
             echo "File $dest overwritten"
             touch "$dest"
