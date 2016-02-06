@@ -4,6 +4,11 @@
 # License: Apache Version 2.0
 # Description: This script will take an image, split it in chunks and then recode it 
 
+if [[ $# -lt 2 ]]; then
+  echo "Usage: ./$0 source_picture destination_picture"
+  exit
+fi
+
 pic=$1
 dest=$2
 echo "Jumbling initiated"
