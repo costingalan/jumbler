@@ -1,5 +1,5 @@
 # jumbler
-Basic Bash file encoder... Although it's more of a proof-of-concept... access inconveniencer than foolproof encoder.
+Basic Bash file encoder. Although it's more of a POC access inconvenience than foolproof encoder.
 
 # Usage
 To "jumble" a file, use "./jumble.sh [filename]"
