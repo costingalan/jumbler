@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pic=$1
 dest=$2
 echo "Jumbling initiated"
