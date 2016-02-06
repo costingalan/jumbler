@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Author: alex.mitan@yahoo.com
+# License: Apache Version 2.0
+# Description: This script will take an image, split it in chunks and then recode it 
+
 pic=$1
 dest=$2
 echo "Jumbling initiated"
