@@ -24,11 +24,13 @@ echo "Jumbling initiated"
 if [[ -f "$pic" ]]; then
     echo "Attempting to jumble $pic into $dest"
     
-    split "$pic" -n 3 "${pic}" # original -> a b c -> a c b
-                       # jumbled  -> a c b -> a b c
+    # original -> a b c -> a c b
+    # jumbled  -> a c b -> a b c
+    split "$pic" -n 3 "${pic}"
     echo "Split into cha[a-c]"
     
-    if [[ -n "$dest" ]]; then   # if a destination is provided write there
+    # if a destination is provided write there
+    if [[ -n "$dest" ]]; then 
         if [[ -f "$dest" ]]; then
             rm "$dest"
             echo "File $dest overwritten"
@@ -36,7 +38,8 @@ if [[ -f "$pic" ]]; then
         fi
         cat "${pic}"aa "${pic}"ac "${pic}"ab > "$dest"
         echo "$pic jumbled into $dest"
-    else                # otherwise overwrite the file
+    else                
+        # otherwise overwrite the file
         cat "${pic}aa ${pic}ac ${pic}ab" > "$pic"
         echo "$pic (re?)jumbled"
     fi
